@@ -20,7 +20,12 @@ class TorSocket {
 
 	}
 
-	public function socksbuffer($ip,$port) {
+	public function newHandler($ip, $port) {
+		$this->close();
+		$this->socksbuffer($ip, $port);
+	}
+
+	private function socksbuffer($ip,$port) {
 
 		$this->handler = fsockopen("localhost", "9050",$errNo,$errStr,1);
 
